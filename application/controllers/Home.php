@@ -9,11 +9,9 @@ class Home extends CI_Controller{
 	}
 
 	public function index(){
-		//$data['images'] = $this->Home_model->get_images();
+		$data['images'] = $this->Home_model->get_images();
 
-		//$this->load->view('home_view',  $data);
-		$this->load->helper('url');
-		$this->load->view('index');
+		$this->load->view('home_view',  $data);
 	}
 }
 
