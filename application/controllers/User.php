@@ -5,6 +5,7 @@ class User extends CI_Controller{
 	public function __construct(){
 		parent::__construct();
 		$this->load->helper('url');
+		$this->load->model('User_db');
 	}
 
 	public function index(){
@@ -17,6 +18,22 @@ class User extends CI_Controller{
 
 	public function Register(){
 		$this->load->view('register');
+	}
+
+	public function RegisterAdd(){
+		$username = $this->input->post('username');
+		$password = $this->input->post('password');
+		$name = $this->input->post('name');
+
+		$data = array(
+			'username' => $username,
+			'password' => $password,
+			'fullname' => $name,
+			'level' => 1);
+
+		$this->User_db->RegisterSubmit($data);
+
+		$this->load->view('login');
 	}
 }
 
