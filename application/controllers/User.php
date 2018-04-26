@@ -24,12 +24,13 @@ class User extends CI_Controller{
 		$username = $this->input->post('username');
 		$password = $this->input->post('password');
 		$name = $this->input->post('name');
+		$level = $this->input->post('level');
 
 		$data = array(
 			'username' => $username,
 			'password' => $password,
 			'fullname' => $name,
-			'level' => 1);
+			'level' => $level);
 
 		$this->User_db->RegisterSubmit($data);
 
