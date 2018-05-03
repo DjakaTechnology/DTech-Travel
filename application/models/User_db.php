@@ -10,4 +10,14 @@ class User_db extends CI_Model{
     public function RegisterSubmit($data){
         $this->db->insert('f_user', $data);
     }
+
+    public function GetAllUser(){
+        $this->db->select('*');
+        $this->db->from('f_user');
+
+        return $this->db->get();
+    }
+    public function DeleteUser($id){
+        $this->db->delete('f_user', array('id' =>$id));
+    }
 }

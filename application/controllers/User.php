@@ -36,6 +36,21 @@ class User extends CI_Controller{
 
 		$this->load->view('login');
 	}
+
+	public function ShowAllUser(){
+		$data = array('result' => $this->User_db->GetAllUser());
+		$this->load->view("v_user_list", $data);
+	}
+	
+	public function DeleteUser(){
+		$id = $this->input->get('id');
+
+		if(isset($id) && $id != null)
+			$this->User_db->DeleteUser($id);		
+		
+		$this->ShowAllUser();
+
+	}
 }
 
 ?>
