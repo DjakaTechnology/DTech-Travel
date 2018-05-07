@@ -8,6 +8,10 @@ class User extends CI_Controller{
 		$this->load->model('User_db');
 	}
 
+	public function CheckLogin(){
+		redirect('user');
+	}
+
 	public function index(){
 		$this->Login();
 	}
