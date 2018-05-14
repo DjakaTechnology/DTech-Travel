@@ -56,3 +56,5 @@ $route['login'] = 'user/login';
 $route['register'] = 'user/register';
 $route['show_user'] = 'user/showalluser';
 $route['delete_user'] = "user/deleteUser";
+$route['edit_user'] = "user/editUser";
+$route['edit'] = "user/doedituser";

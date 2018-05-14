@@ -55,6 +55,32 @@ class User extends CI_Controller{
 		$this->ShowAllUser();
 
 	}
+
+	public function EditUser(){
+		$id = $this->input->get('id');
+		
+		$data = $this->User_db->GetUserDetail($id)->row();
+		$this->load->view('v_edit_user', $data);
+	}
+
+	public function DoEditUser(){
+		$id = $this->input->get('id');
+		$username = $this->input->post('username');
+		$password = $this->input->post('password');
+		$name = $this->input->post('name');
+		$level = $this->input->post('level');
+
+		$data = array(
+			'username' => $username,
+			'password' => $password,
+			'fullname' => $name,
+			'level' => $level
+		);
+
+		$this->User_db->EditUser($id, $data);
+
+		$this->ShowAllUser();
+	}
 }
 
 ?>
